@@ -1,0 +1,40 @@
+<h1>
+    <%= "#{@author.name} #{@author.surname}" %>
+</h1>
+
+<p>
+    Age:
+    <%= "#{@author.age}" %>
+    </hr>
+    Created at:
+    <%= "#{@author.created_at}" %>
+    <br>
+    Updated at:
+    <%= "#{@author.updated_at}" %>
+
+	Posts:
+    <br />
+    <% if @posts.any? %>
+        <% @posts.each do |post| %>
+            <li> 
+                <b><%= post.title %></b>
+                from
+                <b><%= post.created_at %></b>
+                (last modification at
+                <b><%= post.updated_at %></b>)
+                <br />
+                <%= post.content %>
+                <br /><br />
+            </li>
+        <% end %>
+    <% else %>
+        <i>None</i>
+    <% end %>
+
+
+</p>
+
+
+
+    <br><br><hr>
+    <%= link_to 'Back to authors', authors_path %>

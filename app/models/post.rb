@@ -7,10 +7,11 @@ class Post < ActiveRecord::Base
     scope :old, -> { where("created_at < ?", 40.minutes.ago) }
 
     has_many :comments
+    belongs_to :author
 
-    has_many :author_posts
-    has_many :authors, through: :author_posts
-    #wyrazenie lambda, czyli wez kawalek kodu i go wykonaj w przypadku... tego po lewej
+    #has_many :author_posts
+    #has_many :authors, through: :author_posts
+ 
 
     # before_create :annotate_author
 

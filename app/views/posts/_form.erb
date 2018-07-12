@@ -1,0 +1,27 @@
+<% if @post.errors.any? %>
+	<ul>
+
+		<% @post.errors.full_messages.each do |msg| %>
+			<li>
+				<%msg%>
+			</li>
+
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @post do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<hr />
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+
+	<hr />
+	<%= f.label :author %>
+	<%= f.text_field :author %>
+	<hr />
+	<%= f.submit 'Save' %>
+
+
+<% end %>
