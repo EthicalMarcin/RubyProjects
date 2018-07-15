@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 	def show
 
 	  @post = Post.find(params[:id])
+	  
 	end
 
 	def new
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
 		if @post.save 
 			redirect_to posts_path, notice: "Post was created"
 		else
-			render :new 
+			render :new, alert: "There was an error"
 		end
 	end
 
@@ -48,7 +49,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :content, :author)
+		params.require(:post).permit(:title, :content, :author_id)
 	end
 
 end

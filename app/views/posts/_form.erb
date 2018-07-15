@@ -18,8 +18,8 @@
 	<%= f.text_area :content %>
 
 	<hr />
-	<%= f.label :author %>
-	<%= f.text_field :author %>
+	<%= f.label :author_id %>
+	<%= collection_select(:post, :author_id, Author.all, :id, :fullname, prompt: false) %>
 	<hr />
 	<%= f.submit 'Save' %>
 

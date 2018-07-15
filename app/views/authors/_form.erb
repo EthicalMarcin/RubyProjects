@@ -3,24 +3,50 @@
 
 		<% @author.errors.full_messages.each do |msg| %>
 			<li>
-				<%msg%>
+				<%=msg%>
 			</li>
 
 		<% end %>
 	</ul>
 <% end %>
-<%= form_for @author do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<hr />
-	<%= f.label :surname %>
-	<%= f.text_field :surname %>
 
-	<hr />
-	<%= f.label :age %>
-	<%= f.number_field :age %>
-	<hr />
-	<%= f.submit 'Save' %>
+<div class='row'>
+	<div class='col-xs-12'>
+
+		<%= form_for @author do |f| %>
+			<div class="form-group">
+				<div class="control-label col-sm-2">
+					<%= f.label :name %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.text_field :name, class: "form-control",placeholder: "Title of article", autofocus: true %>
+				</div>
+			</div>
+	
+			
+		<div class="form-group">
+				<div class="control-label col-sm-2">
+					<%= f.label :surname %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.text_field :surname, class: "form-control",placeholder: "Title of article", autofocus: true %>
+				</div>
+		</div>		
+
+		<div class="form-group">
+				<div class="control-label col-sm-2">
+					<%= f.label :age %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.number_field :surname, class: "form-control",placeholder: "Title of article", autofocus: true %>
+				</div>
+		</div>	
+
+
+	<%= f.submit 'Save', class: 'btn btn-primary btn-lg'%>
 
 
 <% end %>
+
+</div>
+</div>

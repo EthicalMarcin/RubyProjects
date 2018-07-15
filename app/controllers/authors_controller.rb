@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
 	def index
 	  @authors = Author.all
+	  @author = Author.new
 	end
 
 	def show
@@ -13,13 +14,17 @@ class AuthorsController < ApplicationController
 	end
 
 	def create
-		@author = Author.new(author_params)
-		if @author.save 
-			redirect_to authors_path, notice: "Author was created"
-		else
-			render :new 
-		end
-	end
+		#@author = Author.create(author_params)
+		    @author = Author.new(author_params)
+    			respond_to do |format|
+      if @author.save
+        format.html { redirect_to authors_url, notice: 'Author has been created' }
+        format.js
+      else
+        format.html { render :new }
+      end
+    end
+  end
 
 
 	def edit
@@ -36,12 +41,13 @@ class AuthorsController < ApplicationController
 	end
 
 	def destroy
-		author = Author.find(params[:id]) 
-		if author.destroy
-			redirect_to authors_path, notice: "Author was destroyed"
-		else
-			redirect_to authors_path, alert: "There was an error"
-		end
+		@author = Author.find(params[:id]) 
+		# if author.destroy
+		# 	redirect_to authors_path, notice: "Author was destroyed"
+		# else
+		# 	redirect_to authors_path, alert: "There was an error"
+		# end
+		@author.destroy
 	end
 
 
