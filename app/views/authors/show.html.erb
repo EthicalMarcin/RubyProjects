@@ -1,17 +1,18 @@
+<div class=jumbotron text-center>
 <h1>
-    <%= "#{@author.name} #{@author.surname}" %>
+    <%= "#{@author.fullname}" %>
 </h1>
-
-<p>
+</div>
+<div class="container">
     Age:
     <%= "#{@author.age}" %>
-    </hr>
+    <br> <br>
     Created at:
     <%= "#{@author.created_at}" %>
     <br>
     Updated at:
     <%= "#{@author.updated_at}" %>
-
+    <hr>
 	Posts:
     <br />
     <% if @posts.any? %>
@@ -30,11 +31,11 @@
     <% else %>
         <i>None</i>
     <% end %>
+    <hr>
+     <%= link_to 'Back to authors', authors_path, role: 'button', class: 'btn btn-primary' %>
 
 
-</p>
+</div>
 
 
-
-    <br><br><hr>
-    <%= link_to 'Back to authors', authors_path %>
+   

@@ -1,14 +1,19 @@
-<h1>
-	<%= "#{@post.title}" %>
-</h1>
-
-<p>
-	Content:
-	<br>
-	<%= "#{@post.content}" %>
-	<br><br>
-	Author:<br>
-	<%= "#{@post.author.fullname}" %>
+<div class=jumbotron text-center>
+	<div class="container">
+		<h1><%= "#{@post.title}" %></h1>
+	</div>
+</div>
+<div class="container">
+	<p><h3>
+		<br>
+		<%= "#{@post.content}" %>
+		</h3>
+		Author:<br>
+		<%= "#{@post.author.fullname}" %>
 	
+	</p>
+	<br>
+	<%= link_to 'Back to posts', posts_path, role: 'button', class: 'btn btn-primary' %>
+</div>
 
-</p>
+

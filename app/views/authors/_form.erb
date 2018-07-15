@@ -11,34 +11,34 @@
 <% end %>
 
 <div class='row'>
-	<div class='col-xs-12'>
+	<div class='col-md-12'>
 
 		<%= form_for @author do |f| %>
 			<div class="form-group">
-				<div class="control-label col-sm-2">
+				<div class="control-label col-sm-12">
 					<%= f.label :name %>
 				</div>
 				<div class="col-sm-8">
-					<%= f.text_field :name, class: "form-control",placeholder: "Title of article", autofocus: true %>
+					<%= f.text_field :name, class: "form-control",placeholder: "Title", autofocus: true %>
 				</div>
 			</div>
 	
 			
 		<div class="form-group">
-				<div class="control-label col-sm-2">
+				<div class="control-label col-sm-12">
 					<%= f.label :surname %>
 				</div>
 				<div class="col-sm-8">
-					<%= f.text_field :surname, class: "form-control",placeholder: "Title of article", autofocus: true %>
+					<%= f.text_field :surname, class: "form-control",placeholder: "Surname", autofocus: true %>
 				</div>
 		</div>		
 
 		<div class="form-group">
-				<div class="control-label col-sm-2">
+				<div class="control-label col-sm-12">
 					<%= f.label :age %>
 				</div>
 				<div class="col-sm-8">
-					<%= f.number_field :surname, class: "form-control",placeholder: "Title of article", autofocus: true %>
+					<%= f.number_field :age, class: "form-control",placeholder: "Age of an Author", autofocus: true %>
 				</div>
 		</div>	
 

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 	def show
 
 	  @post = Post.find(params[:id])
-	  
+
 	end
 
 	def new
@@ -28,12 +28,23 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@post = Post.find(params[:id])
-		if @post.update(post_params)
-			redirect_to posts_path, notice: "Post was updated"
-		else
-			render :edit
-		end
+		   @post = Post.find(params[:id])
+   		   @authors = Author.all.collect { |author| [ author.fullname, author.id ] }
+			    if @post.update(post_params)
+			      redirect_to posts_url, notice: 'Post has been updated'
+			    else
+			      render :edit
+			    end
+
+
+
+
+		# @post = Post.find(params[:id])
+		# if @post.update(post_params)
+		# 	redirect_to posts_path, notice: "Post was updated"
+		# else
+		# 	render :edit
+		# end
 	end
 
 	def destroy
